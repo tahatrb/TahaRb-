@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#F8F5F1"/>
+  <text
+    x="50%"
+    y="57%"
+    text-anchor="middle"
+    font-family="Georgia"
+    font-size="42"
+    font-weight="700"
+    fill="#111111">T</text>
+</svg>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://taharb.com/sitemap-index.xml

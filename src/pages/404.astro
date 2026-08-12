@@ -1,0 +1,166 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found | TahaRb"
+  description="The page you're looking for could not be found."
+>
+
+  <section class="error-page">
+
+    <div class="error-content">
+
+      <p class="error-number">404</p>
+
+      <h1>Lost somewhere?</h1>
+
+      <p class="message">
+        The page you're looking for doesn't exist,
+        may have moved, or the link might be outdated.
+      </p>
+
+      <div class="actions">
+
+        <a href="/" class="primary">
+          Back Home
+        </a>
+
+        <a href="/articles" class="secondary">
+          Read Articles
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</BaseLayout>
+
+
+<style>
+
+.error-page {
+
+  min-height: 75vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 100px 20px;
+
+}
+
+
+.error-content {
+
+  max-width: 700px;
+
+  margin: auto;
+
+}
+
+
+.error-number {
+
+  margin-bottom: 10px;
+
+  color: #111;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      7rem,
+      20vw,
+      13rem
+    );
+
+  font-weight: 500;
+
+  line-height: .8;
+
+  letter-spacing: -.06em;
+
+}
+
+
+.error-content h1 {
+
+  margin-top: 40px;
+
+  margin-bottom: 20px;
+
+  font-size:
+    clamp(
+      2.5rem,
+      6vw,
+      4.5rem
+    );
+
+}
+
+
+.message {
+
+  max-width: 500px;
+
+  margin: 0 auto;
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+
+}
+
+
+.actions {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 40px;
+
+  flex-wrap: wrap;
+
+}
+
+
+@media (max-width: 600px) {
+
+  .error-page {
+
+    padding: 80px 20px;
+
+  }
+
+  .actions {
+
+    flex-direction: column;
+
+    align-items: center;
+
+  }
+
+  .actions a {
+
+    width: 100%;
+
+    max-width: 260px;
+
+  }
+
+}
+
+</style>

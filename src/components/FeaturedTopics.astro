@@ -1,0 +1,174 @@
+<section class="topics">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span>WHAT YOU'LL FIND</span>
+
+            <h2>Explore topics that help you grow.</h2>
+
+            <p>
+                Every article is written to help you become a better thinker,
+                builder, and lifelong learner.
+            </p>
+
+        </div>
+
+        <div class="topics-grid">
+
+            <article class="card">
+
+                <h3>Self Development</h3>
+
+                <p>
+                    Practical ideas for building better habits,
+                    mindset, discipline, and personal growth.
+                </p>
+
+            </article>
+
+            <article class="card">
+
+                <h3>Artificial Intelligence</h3>
+
+                <p>
+                    Discover AI tools that improve productivity,
+                    creativity, and everyday work.
+                </p>
+
+            </article>
+
+            <article class="card">
+
+                <h3>Entrepreneurship</h3>
+
+                <p>
+                    Learn how to build online businesses,
+                    digital products, and meaningful projects.
+                </p>
+
+            </article>
+
+            <article class="card">
+
+                <h3>Books & Learning</h3>
+
+                <p>
+                    Carefully selected books, summaries,
+                    and lessons worth revisiting.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.topics{
+
+    padding:120px 0;
+
+}
+
+.section-header{
+
+    max-width:650px;
+
+    margin-bottom:70px;
+
+}
+
+.section-header span{
+
+    font-size:.85rem;
+
+    letter-spacing:3px;
+
+    color:var(--text-light);
+
+}
+
+.section-header h2{
+
+    font-size:3rem;
+
+    margin:18px 0;
+
+}
+
+.section-header p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+.topics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:40px;
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.card h3{
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+}
+
+.card p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+@media(max-width:768px){
+
+.topics-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.section-header h2{
+
+font-size:2.4rem;
+
+}
+
+}
+
+</style>

@@ -1,0 +1,348 @@
+---
+---
+
+<div class="search-wrapper">
+
+  <label for="article-search" class="search-label">
+    Search articles
+  </label>
+
+  <div class="search-box">
+
+    <span class="search-icon" aria-hidden="true">
+      ⌕
+    </span>
+
+    <input
+      id="article-search"
+      type="search"
+      placeholder="Search articles..."
+      autocomplete="off"
+      aria-label="Search articles"
+    />
+
+    <button
+      type="button"
+      id="clear-search"
+      class="clear-search"
+      aria-label="Clear search"
+      hidden
+    >
+      ×
+    </button>
+
+  </div>
+
+  <p
+    id="search-status"
+    class="search-status"
+    aria-live="polite"
+  ></p>
+
+</div>
+
+
+<script>
+
+  const searchInput =
+    document.getElementById("article-search");
+
+  const clearButton =
+    document.getElementById("clear-search");
+
+  const searchStatus =
+    document.getElementById("search-status");
+
+
+  function getArticles() {
+
+    return Array.from(
+      document.querySelectorAll(
+        "[data-searchable]"
+      )
+    );
+
+  }
+
+
+  function searchArticles() {
+
+    if (!searchInput) return;
+
+    const query =
+      searchInput.value
+        .trim()
+        .toLowerCase();
+
+    const articles =
+      getArticles();
+
+    let visibleCount = 0;
+
+
+    articles.forEach((article) => {
+
+      const text =
+        article.textContent
+          ?.toLowerCase() || "";
+
+      const matches =
+        query === "" ||
+        text.includes(query);
+
+      article.classList.toggle(
+        "search-hidden",
+        !matches
+      );
+
+      if (matches) {
+        visibleCount++;
+      }
+
+    });
+
+
+    if (clearButton) {
+
+      clearButton.hidden =
+        query === "";
+
+    }
+
+
+    if (searchStatus) {
+
+      if (query === "") {
+
+        searchStatus.textContent = "";
+
+      } else if (visibleCount === 0) {
+
+        searchStatus.textContent =
+          "No articles found.";
+
+      } else {
+
+        searchStatus.textContent =
+          `${visibleCount} ${
+            visibleCount === 1
+              ? "article"
+              : "articles"
+          } found.`;
+
+      }
+
+    }
+
+  }
+
+
+  searchInput?.addEventListener(
+    "input",
+    searchArticles
+  );
+
+
+  clearButton?.addEventListener(
+    "click",
+    () => {
+
+      if (!searchInput) return;
+
+      searchInput.value = "";
+
+      searchArticles();
+
+      searchInput.focus();
+
+    }
+  );
+
+</script>
+
+
+<style>
+
+.search-wrapper {
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: 40px auto 60px;
+
+}
+
+
+.search-label {
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: .9rem;
+
+  font-weight: 600;
+
+  color: #555;
+
+}
+
+
+.search-box {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+}
+
+
+.search-icon {
+
+  position: absolute;
+
+  left: 18px;
+
+  color: #777;
+
+  font-size: 1.3rem;
+
+  pointer-events: none;
+
+}
+
+
+#article-search {
+
+  width: 100%;
+
+  min-height: 56px;
+
+  padding:
+    0 52px;
+
+  border:
+    1px solid #DDD5CC;
+
+  border-radius: 999px;
+
+  background: #FFFFFF;
+
+  color: #111;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease;
+
+}
+
+
+#article-search::placeholder {
+
+  color: #999;
+
+}
+
+
+#article-search:focus {
+
+  border-color: #111;
+
+  box-shadow:
+    0 0 0 4px rgba(17,17,17,.06);
+
+}
+
+
+.clear-search {
+
+  position: absolute;
+
+  right: 14px;
+
+  width: 34px;
+
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #F8F5F1;
+
+  color: #555;
+
+  font-size: 1.4rem;
+
+  line-height: 1;
+
+}
+
+
+.clear-search:hover {
+
+  background: #ECE7E0;
+
+  color: #111;
+
+}
+
+
+.search-status {
+
+  min-height: 24px;
+
+  margin-top: 12px;
+
+  color: #6B6B6B;
+
+  font-size: .9rem;
+
+}
+
+
+.search-hidden {
+
+  display: none !important;
+
+}
+
+
+@media (max-width: 768px) {
+
+  .search-wrapper {
+
+    margin:
+      30px auto 45px;
+
+  }
+
+
+  #article-search {
+
+    min-height: 52px;
+
+    font-size: .95rem;
+
+  }
+
+}
+
+</style>
